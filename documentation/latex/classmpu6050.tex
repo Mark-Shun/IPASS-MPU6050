@@ -1,0 +1,619 @@
+\hypertarget{classmpu6050}{}\doxysection{mpu6050 Class Reference}
+\label{classmpu6050}\index{mpu6050@{mpu6050}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmpu6050_a63ffa81da9d71798f9ebbb5e38d69a54}{mpu6050}} (uint8\+\_\+t set\+\_\+i2c\+\_\+address=0x68)
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+byte \mbox{\hyperlink{classmpu6050_afc73ee99da3129b8e70d7b760a99866d}{wake\+Up}} ()
+\begin{DoxyCompactList}\small\item\em Wakes the device up by writing to the appropiate power management bit. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmpu6050_a73ee796523c30b77f9dcca7a9e7bba34}{awake\+Check}} ()
+\begin{DoxyCompactList}\small\item\em Checks to see if the module is awake by trying to read the power management bit. \end{DoxyCompactList}\item 
+byte \mbox{\hyperlink{classmpu6050_a913a7cab49cfc33cd0bf0e4d903d4774}{communication\+Check}} ()
+\begin{DoxyCompactList}\small\item\em This is a function that can ocasionally be called to check if communication with the module is still intact. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classmpu6050_a50ef20dd4f382251fa07e7330b5b5667}{who\+AmI}} ()
+\begin{DoxyCompactList}\small\item\em Retrieve the module\textquotesingle{}s I2C adress. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmpu6050_a211a2635a99f3162e5c5e39d3cadb319}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Reset all internal registers back to their default state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmpu6050_ac6553057859f0b5ec825493cc6b5780a}{calc\+Offsets}} (bool is\+\_\+calc\+\_\+acc=true, bool is\+\_\+calc\+\_\+gyro=true)
+\begin{DoxyCompactList}\small\item\em Calculate the offset of the module by taking a certain amount of measurements and taking the average. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmpu6050_a8c05767a1c33288204db4d4ebd8bec97}{enable\+Accel\+Self\+Test}} ()
+\begin{DoxyCompactList}\small\item\em Enable the accelerometer self test configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmpu6050_a1b88f5eacbdf7269757eda2861885943}{enable\+Gyro\+Self\+Test}} ()
+\begin{DoxyCompactList}\small\item\em Enable the gyroscope self test configuration. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classmpu6050_a5ab8d0ddd711c80c9d6d8b0e0563878c}{get\+Clock\+Source}} ()
+\begin{DoxyCompactList}\small\item\em Get the clock source setting from the power register. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmpu6050_a411fbb41635905e9d6748f2239692083}{get\+Self\+Test\+Values}} (uint8\+\_\+t \&accel\+\_\+x, uint8\+\_\+t \&accel\+\_\+y, uint8\+\_\+t \&accel\+\_\+z, uint8\+\_\+t \&gyro\+\_\+x, uint8\+\_\+t \&gyro\+\_\+y, uint8\+\_\+t \&gyro\+\_\+z)
+\begin{DoxyCompactList}\small\item\em Retrieve self test values from the registers and store them in the parsed parameters. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{classmpu6050_a3fa78fe214e5666818cfc3088f537531}{get\+AccelX}} ()
+\begin{DoxyCompactList}\small\item\em Get the raw Accelerometer X value. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmpu6050_a921d5ef0b16b92b41dc6cd757a65501e}{get\+Calc\+AccelX}} ()
+\begin{DoxyCompactList}\small\item\em Get the to g-\/forces converted X axis Accelerometer value. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{classmpu6050_ac8181d8270423070ee27305561728775}{get\+AccelY}} ()
+\begin{DoxyCompactList}\small\item\em Get the raw Accelerometer Y value. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmpu6050_a7c6e1b3e161fae7ecd7ec27a0c09996e}{get\+Calc\+AccelY}} ()
+\begin{DoxyCompactList}\small\item\em Get the to g-\/forces converted Y axis Accelerometer value. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{classmpu6050_a72964016d81fc711f88a20c2164ff4e9}{get\+AccelZ}} ()
+\begin{DoxyCompactList}\small\item\em Get the raw Accelerometer Z value. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmpu6050_a4f52b2f7baaae89eec9be1c37d9c3903}{get\+Calc\+AccelZ}} ()
+\begin{DoxyCompactList}\small\item\em Get the to g-\/forces converted Z axis Accelerometer value. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{classmpu6050_a87ddc9d062ebf83f3ae0117b53fd4f31}{get\+GyroX}} ()
+\begin{DoxyCompactList}\small\item\em Get the raw Gyroscope X value. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmpu6050_a9949d105876712aaaa9494aee4a5c4d6}{get\+Calc\+GyroX}} ()
+\begin{DoxyCompactList}\small\item\em Get the to degrees per second converted X axis Gyroscope value. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{classmpu6050_afcfda69d16a6ce7083bf507b21be6c35}{get\+GyroY}} ()
+\begin{DoxyCompactList}\small\item\em Get the raw Gyroscope Y value. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmpu6050_a81494a849afc298ce5c9d8e565fc456d}{get\+Calc\+GyroY}} ()
+\begin{DoxyCompactList}\small\item\em Get the to degrees per second converted Y axis Gyroscope value. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{classmpu6050_a81fd1ecc0545fe3a9be655cd918fae8f}{get\+GyroZ}} ()
+\begin{DoxyCompactList}\small\item\em Get the raw Gyroscope Z value. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmpu6050_acbd61b999ec26f2bfbe42ed889aa376c}{get\+Calc\+GyroZ}} ()
+\begin{DoxyCompactList}\small\item\em Get the to degrees per second converted Z axis Gyroscope value. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{classmpu6050_a21a20c66bf02f452043e02db3cca7b2d}{get\+Temp}} ()
+\begin{DoxyCompactList}\small\item\em Get the raw temperature reading. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classmpu6050_a269e06fedbe4c2de581ab705901e4b9e}{get\+Calc\+Temp}} ()
+\begin{DoxyCompactList}\small\item\em Get the temperature converted to celcius. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_sensor_data}{Sensor\+Data}} \mbox{\hyperlink{classmpu6050_a684c0cd66bb608fd2e42bc0c74f5da27}{get\+All\+Sensor\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Retrieve all sensor (accel, gyro, temp) data in one go. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_calc_sensor_data}{Calc\+Sensor\+Data}} \mbox{\hyperlink{classmpu6050_ae6018ba2546e78ce89ba1195bdb6c16b}{get\+All\+Calc\+Sensor\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Retrieve and convert all sensor (accel, gyro, temp) data in one go. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classmpu6050_aeaf8122e2e04f2043cef80ff389f28b3}{get\+Accel\+Full\+Scale\+Range}} ()
+\begin{DoxyCompactList}\small\item\em Get the Accel Full Scale Range value. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classmpu6050_a34d29d271220ee0da130bfc77be5ca47}{get\+Gyro\+Full\+Scale\+Range}} ()
+\begin{DoxyCompactList}\small\item\em Get the Gyro full-\/scale range value. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classmpu6050_a3cb871b4959e7632a57f92b99c381028}{get\+Sample\+Rate}} ()
+\begin{DoxyCompactList}\small\item\em Get the Gyroscope sampling rate. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classmpu6050_afa7f5d97f647dfeaa9b47e9d7de824ec}{get\+DLPF}} ()
+\begin{DoxyCompactList}\small\item\em Get the Digital Low Pass Filter value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmpu6050_a1c42f44690e3b14bce7819c9b8fe9c16}{set\+Clock\+Source}} (uint8\+\_\+t clock\+\_\+source\+\_\+setting)
+\begin{DoxyCompactList}\small\item\em Set the Clock Source setting. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmpu6050_ac7e8b73e19da659b1bcceb558a71a7fe}{set\+Accel\+Full\+Scale\+Range}} (uint8\+\_\+t full\+\_\+scale\+\_\+range\+\_\+setting)
+\begin{DoxyCompactList}\small\item\em Set the Accelerometer Full Scale Range configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmpu6050_aab51ccdbf698f42751c3b3882c914882}{set\+Gyro\+Full\+Scale\+Range}} (uint8\+\_\+t full\+\_\+scale\+\_\+range\+\_\+setting)
+\begin{DoxyCompactList}\small\item\em Set the Gyroscope Full Scale Range configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmpu6050_a2ace94719ced141d909bae7407e91e5e}{set\+Sample\+Rate}} (uint8\+\_\+t sample\+\_\+rate\+\_\+setting)
+\begin{DoxyCompactList}\small\item\em Set the Gyroscope Sample Rate configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmpu6050_a7effe5346e90359e33e4851e295c97ad}{set\+DLPF}} (uint8\+\_\+t dlpf\+\_\+setting)
+\begin{DoxyCompactList}\small\item\em Set the Digital Low Pass Filter setting. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmpu6050_afd2a80b7ecc2a19d87e4aab99d927172}{set\+FSYNC}} (uint8\+\_\+t fsync\+\_\+setting)
+\begin{DoxyCompactList}\small\item\em Set the Frame Synchronization setting. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmpu6050_a7344805231bd175452348c7db6cbfe51}\label{classmpu6050_a7344805231bd175452348c7db6cbfe51}} 
+float {\bfseries get\+Accel\+XOffset} ()
+\item 
+\mbox{\Hypertarget{classmpu6050_ad29815227bc389d2f13e182a42b1e36c}\label{classmpu6050_ad29815227bc389d2f13e182a42b1e36c}} 
+float {\bfseries get\+Accel\+YOffset} ()
+\item 
+\mbox{\Hypertarget{classmpu6050_a8a6e891f33ae342dff3fa2f2b9f9d0c9}\label{classmpu6050_a8a6e891f33ae342dff3fa2f2b9f9d0c9}} 
+float {\bfseries get\+Accel\+ZOffset} ()
+\item 
+\mbox{\Hypertarget{classmpu6050_a32391d00a2d96a651434c11dba2f1f77}\label{classmpu6050_a32391d00a2d96a651434c11dba2f1f77}} 
+float {\bfseries get\+Gyro\+XOffset} ()
+\item 
+\mbox{\Hypertarget{classmpu6050_a9c71c784ff21a8ec8956df19857c4e3a}\label{classmpu6050_a9c71c784ff21a8ec8956df19857c4e3a}} 
+float {\bfseries get\+Gyro\+YOffset} ()
+\item 
+\mbox{\Hypertarget{classmpu6050_a2f1d5a87f4393367ffa790588461a71a}\label{classmpu6050_a2f1d5a87f4393367ffa790588461a71a}} 
+float {\bfseries get\+Gyro\+ZOffset} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmpu6050_a63ffa81da9d71798f9ebbb5e38d69a54}\label{classmpu6050_a63ffa81da9d71798f9ebbb5e38d69a54}} 
+\index{mpu6050@{mpu6050}!mpu6050@{mpu6050}}
+\index{mpu6050@{mpu6050}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{mpu6050()}{mpu6050()}}
+{\footnotesize\ttfamily mpu6050\+::mpu6050 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{set\+\_\+i2c\+\_\+address = {\ttfamily 0x68} }\end{DoxyParamCaption})}
+
+
+
+Default constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em set\+\_\+i2c\+\_\+address} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmpu6050_a73ee796523c30b77f9dcca7a9e7bba34}\label{classmpu6050_a73ee796523c30b77f9dcca7a9e7bba34}} 
+\index{mpu6050@{mpu6050}!awakeCheck@{awakeCheck}}
+\index{awakeCheck@{awakeCheck}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{awakeCheck()}{awakeCheck()}}
+{\footnotesize\ttfamily bool mpu6050\+::awake\+Check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks to see if the module is awake by trying to read the power management bit. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_ac6553057859f0b5ec825493cc6b5780a}\label{classmpu6050_ac6553057859f0b5ec825493cc6b5780a}} 
+\index{mpu6050@{mpu6050}!calcOffsets@{calcOffsets}}
+\index{calcOffsets@{calcOffsets}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{calcOffsets()}{calcOffsets()}}
+{\footnotesize\ttfamily void mpu6050\+::calc\+Offsets (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+calc\+\_\+acc = {\ttfamily true},  }\item[{bool}]{is\+\_\+calc\+\_\+gyro = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Calculate the offset of the module by taking a certain amount of measurements and taking the average. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+\_\+calc\+\_\+acc} & Whether or not to calculate accelerometer offset \\
+\hline
+{\em is\+\_\+calc\+\_\+gyro} & Whether or not to calculate gyroscope offset \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmpu6050_a913a7cab49cfc33cd0bf0e4d903d4774}\label{classmpu6050_a913a7cab49cfc33cd0bf0e4d903d4774}} 
+\index{mpu6050@{mpu6050}!communicationCheck@{communicationCheck}}
+\index{communicationCheck@{communicationCheck}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{communicationCheck()}{communicationCheck()}}
+{\footnotesize\ttfamily byte mpu6050\+::communication\+Check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This is a function that can ocasionally be called to check if communication with the module is still intact. 
+
+\begin{DoxyReturn}{Returns}
+0 = Succes 1 = Data too long 2 = Received NACK for adress, I2C device did not acknowledge the adress indicating failure to establish communication 3 = Received NACK for data, the I2C device did not acknowledge the data byte, indicating failure during data transmission 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_a8c05767a1c33288204db4d4ebd8bec97}\label{classmpu6050_a8c05767a1c33288204db4d4ebd8bec97}} 
+\index{mpu6050@{mpu6050}!enableAccelSelfTest@{enableAccelSelfTest}}
+\index{enableAccelSelfTest@{enableAccelSelfTest}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{enableAccelSelfTest()}{enableAccelSelfTest()}}
+{\footnotesize\ttfamily void mpu6050\+::enable\+Accel\+Self\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Enable the accelerometer self test configuration. 
+
+\mbox{\Hypertarget{classmpu6050_a1b88f5eacbdf7269757eda2861885943}\label{classmpu6050_a1b88f5eacbdf7269757eda2861885943}} 
+\index{mpu6050@{mpu6050}!enableGyroSelfTest@{enableGyroSelfTest}}
+\index{enableGyroSelfTest@{enableGyroSelfTest}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{enableGyroSelfTest()}{enableGyroSelfTest()}}
+{\footnotesize\ttfamily void mpu6050\+::enable\+Gyro\+Self\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Enable the gyroscope self test configuration. 
+
+\mbox{\Hypertarget{classmpu6050_aeaf8122e2e04f2043cef80ff389f28b3}\label{classmpu6050_aeaf8122e2e04f2043cef80ff389f28b3}} 
+\index{mpu6050@{mpu6050}!getAccelFullScaleRange@{getAccelFullScaleRange}}
+\index{getAccelFullScaleRange@{getAccelFullScaleRange}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getAccelFullScaleRange()}{getAccelFullScaleRange()}}
+{\footnotesize\ttfamily uint8\+\_\+t mpu6050\+::get\+Accel\+Full\+Scale\+Range (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Accel Full Scale Range value. 
+
+\begin{DoxyReturn}{Returns}
+an uint8\+\_\+t value indicating the sensitivity or scale factor of the gyroscope sensor. The following values correspond to the following settings\+: 0 = ±2g (default). 1 = ±4g. 2 = ±8g. 3 = ±16g. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_a3fa78fe214e5666818cfc3088f537531}\label{classmpu6050_a3fa78fe214e5666818cfc3088f537531}} 
+\index{mpu6050@{mpu6050}!getAccelX@{getAccelX}}
+\index{getAccelX@{getAccelX}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getAccelX()}{getAccelX()}}
+{\footnotesize\ttfamily int16\+\_\+t mpu6050\+::get\+AccelX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the raw Accelerometer X value. 
+
+\begin{DoxyReturn}{Returns}
+int16\+\_\+t 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_ac8181d8270423070ee27305561728775}\label{classmpu6050_ac8181d8270423070ee27305561728775}} 
+\index{mpu6050@{mpu6050}!getAccelY@{getAccelY}}
+\index{getAccelY@{getAccelY}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getAccelY()}{getAccelY()}}
+{\footnotesize\ttfamily int16\+\_\+t mpu6050\+::get\+AccelY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the raw Accelerometer Y value. 
+
+\begin{DoxyReturn}{Returns}
+int16\+\_\+t 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_a72964016d81fc711f88a20c2164ff4e9}\label{classmpu6050_a72964016d81fc711f88a20c2164ff4e9}} 
+\index{mpu6050@{mpu6050}!getAccelZ@{getAccelZ}}
+\index{getAccelZ@{getAccelZ}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getAccelZ()}{getAccelZ()}}
+{\footnotesize\ttfamily int16\+\_\+t mpu6050\+::get\+AccelZ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the raw Accelerometer Z value. 
+
+\begin{DoxyReturn}{Returns}
+int16\+\_\+t 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_ae6018ba2546e78ce89ba1195bdb6c16b}\label{classmpu6050_ae6018ba2546e78ce89ba1195bdb6c16b}} 
+\index{mpu6050@{mpu6050}!getAllCalcSensorData@{getAllCalcSensorData}}
+\index{getAllCalcSensorData@{getAllCalcSensorData}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getAllCalcSensorData()}{getAllCalcSensorData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_calc_sensor_data}{Calc\+Sensor\+Data}} mpu6050\+::get\+All\+Calc\+Sensor\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve and convert all sensor (accel, gyro, temp) data in one go. 
+
+\begin{DoxyReturn}{Returns}
+A struct storing all the converted sensor reading values (G-\/force, Celcius, Degrees per second and celcius) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_a684c0cd66bb608fd2e42bc0c74f5da27}\label{classmpu6050_a684c0cd66bb608fd2e42bc0c74f5da27}} 
+\index{mpu6050@{mpu6050}!getAllSensorData@{getAllSensorData}}
+\index{getAllSensorData@{getAllSensorData}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getAllSensorData()}{getAllSensorData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_sensor_data}{Sensor\+Data}} mpu6050\+::get\+All\+Sensor\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve all sensor (accel, gyro, temp) data in one go. 
+
+\begin{DoxyReturn}{Returns}
+A struct storing all the sensor reading values 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_a921d5ef0b16b92b41dc6cd757a65501e}\label{classmpu6050_a921d5ef0b16b92b41dc6cd757a65501e}} 
+\index{mpu6050@{mpu6050}!getCalcAccelX@{getCalcAccelX}}
+\index{getCalcAccelX@{getCalcAccelX}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getCalcAccelX()}{getCalcAccelX()}}
+{\footnotesize\ttfamily float mpu6050\+::get\+Calc\+AccelX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the to g-\/forces converted X axis Accelerometer value. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_a7c6e1b3e161fae7ecd7ec27a0c09996e}\label{classmpu6050_a7c6e1b3e161fae7ecd7ec27a0c09996e}} 
+\index{mpu6050@{mpu6050}!getCalcAccelY@{getCalcAccelY}}
+\index{getCalcAccelY@{getCalcAccelY}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getCalcAccelY()}{getCalcAccelY()}}
+{\footnotesize\ttfamily float mpu6050\+::get\+Calc\+AccelY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the to g-\/forces converted Y axis Accelerometer value. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_a4f52b2f7baaae89eec9be1c37d9c3903}\label{classmpu6050_a4f52b2f7baaae89eec9be1c37d9c3903}} 
+\index{mpu6050@{mpu6050}!getCalcAccelZ@{getCalcAccelZ}}
+\index{getCalcAccelZ@{getCalcAccelZ}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getCalcAccelZ()}{getCalcAccelZ()}}
+{\footnotesize\ttfamily float mpu6050\+::get\+Calc\+AccelZ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the to g-\/forces converted Z axis Accelerometer value. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_a9949d105876712aaaa9494aee4a5c4d6}\label{classmpu6050_a9949d105876712aaaa9494aee4a5c4d6}} 
+\index{mpu6050@{mpu6050}!getCalcGyroX@{getCalcGyroX}}
+\index{getCalcGyroX@{getCalcGyroX}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getCalcGyroX()}{getCalcGyroX()}}
+{\footnotesize\ttfamily float mpu6050\+::get\+Calc\+GyroX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the to degrees per second converted X axis Gyroscope value. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_a81494a849afc298ce5c9d8e565fc456d}\label{classmpu6050_a81494a849afc298ce5c9d8e565fc456d}} 
+\index{mpu6050@{mpu6050}!getCalcGyroY@{getCalcGyroY}}
+\index{getCalcGyroY@{getCalcGyroY}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getCalcGyroY()}{getCalcGyroY()}}
+{\footnotesize\ttfamily float mpu6050\+::get\+Calc\+GyroY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the to degrees per second converted Y axis Gyroscope value. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_acbd61b999ec26f2bfbe42ed889aa376c}\label{classmpu6050_acbd61b999ec26f2bfbe42ed889aa376c}} 
+\index{mpu6050@{mpu6050}!getCalcGyroZ@{getCalcGyroZ}}
+\index{getCalcGyroZ@{getCalcGyroZ}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getCalcGyroZ()}{getCalcGyroZ()}}
+{\footnotesize\ttfamily float mpu6050\+::get\+Calc\+GyroZ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the to degrees per second converted Z axis Gyroscope value. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_a269e06fedbe4c2de581ab705901e4b9e}\label{classmpu6050_a269e06fedbe4c2de581ab705901e4b9e}} 
+\index{mpu6050@{mpu6050}!getCalcTemp@{getCalcTemp}}
+\index{getCalcTemp@{getCalcTemp}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getCalcTemp()}{getCalcTemp()}}
+{\footnotesize\ttfamily float mpu6050\+::get\+Calc\+Temp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the temperature converted to celcius. 
+
+\begin{DoxyReturn}{Returns}
+float converted temperature reading in celcius 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_a5ab8d0ddd711c80c9d6d8b0e0563878c}\label{classmpu6050_a5ab8d0ddd711c80c9d6d8b0e0563878c}} 
+\index{mpu6050@{mpu6050}!getClockSource@{getClockSource}}
+\index{getClockSource@{getClockSource}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getClockSource()}{getClockSource()}}
+{\footnotesize\ttfamily uint8\+\_\+t mpu6050\+::get\+Clock\+Source (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the clock source setting from the power register. 
+
+\begin{DoxyReturn}{Returns}
+an uint8\+\_\+t value indicating the current clock source setting 0 = Internal 8Mhz oscillator 1 = PLL with X axis gyroscope reference 2 = PLL with Y axis gyroscope reference 3 = PLL with Z axis gyroscope reference 4 = PLL with external 32.\+768k\+Hz reference 5 = PLL with external 19.\+2\+MHz reference 6 = Reserved 7 = Stops the clock and keeps the timing generator in reset 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_afa7f5d97f647dfeaa9b47e9d7de824ec}\label{classmpu6050_afa7f5d97f647dfeaa9b47e9d7de824ec}} 
+\index{mpu6050@{mpu6050}!getDLPF@{getDLPF}}
+\index{getDLPF@{getDLPF}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getDLPF()}{getDLPF()}}
+{\footnotesize\ttfamily uint8\+\_\+t mpu6050\+::get\+DLPF (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Digital Low Pass Filter value. 
+
+\begin{DoxyReturn}{Returns}
+an uint8\+\_\+t value indicating the current DLPF setting. By default DLPF is disabled (0x00) with no filtering. The values correspond to the following settings\+:
+\begin{DoxyItemize}
+\item Accelerometer -\/ 0x00\+: Bandwidth = 260Hz, Delay = 0ms 0x01\+: Bandwidth = 184Hz, Delay = 2.\+0ms 0x02\+: Bandwidth = 94Hz, Delay = 3.\+0ms 0x03\+: Bandwidth = 44Hz, Delay = 4.\+9ms 0x04\+: Bandwidth = 21Hz, Delay = 8.\+5ms 0x05\+: Bandwidth = 10Hz, Delay = 13.\+8ms 0x06\+: Bandwidth = 5Hz, Delay = 19.\+0ms 0x07\+: Reserved
+\begin{DoxyItemize}
+\item Gyroscope -\/ 0x00\+: Bandwidth = 256Hz, Delay = 0.\+98ms 0x01\+: Bandwidth = 188Hz, Delay = 1.\+9ms 0x02\+: Bandwidth = 98Hz, Delay = 2.\+8ms 0x03\+: Bandwidth = 42Hz, Delay = 4.\+8ms 0x04\+: Bandwidth = 20Hz, Delay = 8.\+3ms 0x05\+: Bandwidth = 10Hz, Delay = 13.\+4ms 0x06\+: Bandwidth = 5Hz, Delay = 18.\+6ms 0x07\+: Reserved 
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_a34d29d271220ee0da130bfc77be5ca47}\label{classmpu6050_a34d29d271220ee0da130bfc77be5ca47}} 
+\index{mpu6050@{mpu6050}!getGyroFullScaleRange@{getGyroFullScaleRange}}
+\index{getGyroFullScaleRange@{getGyroFullScaleRange}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getGyroFullScaleRange()}{getGyroFullScaleRange()}}
+{\footnotesize\ttfamily uint8\+\_\+t mpu6050\+::get\+Gyro\+Full\+Scale\+Range (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Gyro full-\/scale range value. 
+
+\begin{DoxyReturn}{Returns}
+an uint8\+\_\+t value indicating the sensitivity or scale factor of the gyroscope sensor. The following values correspond to the following settings\+: 0 = full-\/scale range of ±250°/s, the sensitivity is 131 LSB per °/s (default). 1 = full-\/scale range of ±500°/s, the sensitivity is 65.\+5 LSB per °/s. 2 = full-\/scale range of ±1000°/s, the sensitivity is 32.\+8 LSB per °/s. 3 = full-\/scale range of ±2000°/s, the sensitivity is 16.\+4 LSB per °/s. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_a87ddc9d062ebf83f3ae0117b53fd4f31}\label{classmpu6050_a87ddc9d062ebf83f3ae0117b53fd4f31}} 
+\index{mpu6050@{mpu6050}!getGyroX@{getGyroX}}
+\index{getGyroX@{getGyroX}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getGyroX()}{getGyroX()}}
+{\footnotesize\ttfamily int16\+\_\+t mpu6050\+::get\+GyroX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the raw Gyroscope X value. 
+
+\begin{DoxyReturn}{Returns}
+int16\+\_\+t 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_afcfda69d16a6ce7083bf507b21be6c35}\label{classmpu6050_afcfda69d16a6ce7083bf507b21be6c35}} 
+\index{mpu6050@{mpu6050}!getGyroY@{getGyroY}}
+\index{getGyroY@{getGyroY}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getGyroY()}{getGyroY()}}
+{\footnotesize\ttfamily int16\+\_\+t mpu6050\+::get\+GyroY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the raw Gyroscope Y value. 
+
+\begin{DoxyReturn}{Returns}
+int16\+\_\+t 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_a81fd1ecc0545fe3a9be655cd918fae8f}\label{classmpu6050_a81fd1ecc0545fe3a9be655cd918fae8f}} 
+\index{mpu6050@{mpu6050}!getGyroZ@{getGyroZ}}
+\index{getGyroZ@{getGyroZ}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getGyroZ()}{getGyroZ()}}
+{\footnotesize\ttfamily int16\+\_\+t mpu6050\+::get\+GyroZ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the raw Gyroscope Z value. 
+
+\begin{DoxyReturn}{Returns}
+int16\+\_\+t 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_a3cb871b4959e7632a57f92b99c381028}\label{classmpu6050_a3cb871b4959e7632a57f92b99c381028}} 
+\index{mpu6050@{mpu6050}!getSampleRate@{getSampleRate}}
+\index{getSampleRate@{getSampleRate}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getSampleRate()}{getSampleRate()}}
+{\footnotesize\ttfamily uint8\+\_\+t mpu6050\+::get\+Sample\+Rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Gyroscope sampling rate. 
+
+\begin{DoxyReturn}{Returns}
+an uint8\+\_\+t representing the sampling rate for the Gyro sensor. Sample rate = Gyroscope output rate / (1+ SMPLRT\+\_\+\+DIV) The following values correspond to the following settings\+: 8k\+Hz sample rate\+: SMPLRT\+\_\+\+DIV = 0x00 (Default with DMP disabled) 1k\+Hz sample rate\+: SMPLRT\+\_\+\+DIV = 0x07 500Hz sample rate\+: SMPLRT\+\_\+\+DIV = 0x0F 200Hz sample rate\+: SMPLRT\+\_\+\+DIV = 0x27 100Hz sample rate\+: SMPLRT\+\_\+\+DIV = 0x4F 50Hz sample rate\+: SMPLRT\+\_\+\+DIV = 0x9F 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_a411fbb41635905e9d6748f2239692083}\label{classmpu6050_a411fbb41635905e9d6748f2239692083}} 
+\index{mpu6050@{mpu6050}!getSelfTestValues@{getSelfTestValues}}
+\index{getSelfTestValues@{getSelfTestValues}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getSelfTestValues()}{getSelfTestValues()}}
+{\footnotesize\ttfamily void mpu6050\+::get\+Self\+Test\+Values (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \&}]{accel\+\_\+x,  }\item[{uint8\+\_\+t \&}]{accel\+\_\+y,  }\item[{uint8\+\_\+t \&}]{accel\+\_\+z,  }\item[{uint8\+\_\+t \&}]{gyro\+\_\+x,  }\item[{uint8\+\_\+t \&}]{gyro\+\_\+y,  }\item[{uint8\+\_\+t \&}]{gyro\+\_\+z }\end{DoxyParamCaption})}
+
+
+
+Retrieve self test values from the registers and store them in the parsed parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em accel\+\_\+x} & \\
+\hline
+{\em accel\+\_\+y} & \\
+\hline
+{\em accel\+\_\+z} & \\
+\hline
+{\em gyro\+\_\+x} & \\
+\hline
+{\em gyro\+\_\+y} & \\
+\hline
+{\em gyro\+\_\+z} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmpu6050_a21a20c66bf02f452043e02db3cca7b2d}\label{classmpu6050_a21a20c66bf02f452043e02db3cca7b2d}} 
+\index{mpu6050@{mpu6050}!getTemp@{getTemp}}
+\index{getTemp@{getTemp}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getTemp()}{getTemp()}}
+{\footnotesize\ttfamily int16\+\_\+t mpu6050\+::get\+Temp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the raw temperature reading. 
+
+\begin{DoxyReturn}{Returns}
+int\+\_\+16t sensor temperature reading 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_a211a2635a99f3162e5c5e39d3cadb319}\label{classmpu6050_a211a2635a99f3162e5c5e39d3cadb319}} 
+\index{mpu6050@{mpu6050}!reset@{reset}}
+\index{reset@{reset}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void mpu6050\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reset all internal registers back to their default state. 
+
+\mbox{\Hypertarget{classmpu6050_ac7e8b73e19da659b1bcceb558a71a7fe}\label{classmpu6050_ac7e8b73e19da659b1bcceb558a71a7fe}} 
+\index{mpu6050@{mpu6050}!setAccelFullScaleRange@{setAccelFullScaleRange}}
+\index{setAccelFullScaleRange@{setAccelFullScaleRange}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{setAccelFullScaleRange()}{setAccelFullScaleRange()}}
+{\footnotesize\ttfamily void mpu6050\+::set\+Accel\+Full\+Scale\+Range (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{full\+\_\+scale\+\_\+range\+\_\+setting }\end{DoxyParamCaption})}
+
+
+
+Set the Accelerometer Full Scale Range configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Parse} & the desired full-\/scale range setting. The following values correspond to the following settings\+: 0 = ±2g (default). 1 = ±4g. 2 = ±8g. 3 = ±16g. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmpu6050_a1c42f44690e3b14bce7819c9b8fe9c16}\label{classmpu6050_a1c42f44690e3b14bce7819c9b8fe9c16}} 
+\index{mpu6050@{mpu6050}!setClockSource@{setClockSource}}
+\index{setClockSource@{setClockSource}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{setClockSource()}{setClockSource()}}
+{\footnotesize\ttfamily void mpu6050\+::set\+Clock\+Source (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{clock\+\_\+source\+\_\+setting }\end{DoxyParamCaption})}
+
+
+
+Set the Clock Source setting. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em an} & uint8\+\_\+t value indicating which setting you want 0 = Internal 8Mhz oscillator 1 = PLL with X axis gyroscope reference 2 = PLL with Y axis gyroscope reference 3 = PLL with Z axis gyroscope reference 4 = PLL with external 32.\+768k\+Hz reference 5 = PLL with external 19.\+2\+MHz reference 6 = Reserved 7 = Stops the clock and keeps the timing generator in reset \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmpu6050_a7effe5346e90359e33e4851e295c97ad}\label{classmpu6050_a7effe5346e90359e33e4851e295c97ad}} 
+\index{mpu6050@{mpu6050}!setDLPF@{setDLPF}}
+\index{setDLPF@{setDLPF}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{setDLPF()}{setDLPF()}}
+{\footnotesize\ttfamily void mpu6050\+::set\+DLPF (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{dlpf\+\_\+setting }\end{DoxyParamCaption})}
+
+
+
+Set the Digital Low Pass Filter setting. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Parse} & the desired digital low pass filter setting in hexadecimal value. For example for setting 3 parse\+: 0x03. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmpu6050_afd2a80b7ecc2a19d87e4aab99d927172}\label{classmpu6050_afd2a80b7ecc2a19d87e4aab99d927172}} 
+\index{mpu6050@{mpu6050}!setFSYNC@{setFSYNC}}
+\index{setFSYNC@{setFSYNC}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{setFSYNC()}{setFSYNC()}}
+{\footnotesize\ttfamily void mpu6050\+::set\+FSYNC (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{fsync\+\_\+setting }\end{DoxyParamCaption})}
+
+
+
+Set the Frame Synchronization setting. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Parse} & the desired synchronization setting in hexadecimal value. For example for setting 6 parse\+: 0x06. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmpu6050_aab51ccdbf698f42751c3b3882c914882}\label{classmpu6050_aab51ccdbf698f42751c3b3882c914882}} 
+\index{mpu6050@{mpu6050}!setGyroFullScaleRange@{setGyroFullScaleRange}}
+\index{setGyroFullScaleRange@{setGyroFullScaleRange}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{setGyroFullScaleRange()}{setGyroFullScaleRange()}}
+{\footnotesize\ttfamily void mpu6050\+::set\+Gyro\+Full\+Scale\+Range (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{full\+\_\+scale\+\_\+range\+\_\+setting }\end{DoxyParamCaption})}
+
+
+
+Set the Gyroscope Full Scale Range configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Parse} & the desired full-\/scale range setting. The following values correspond to the following settings\+: 0 = full-\/scale range of ±250°/s, the sensitivity is 131 LSB per °/s (default). 1 = full-\/scale range of ±500°/s, the sensitivity is 65.\+5 LSB per °/s. 2 = full-\/scale range of ±1000°/s, the sensitivity is 32.\+8 LSB per °/s. 3 = full-\/scale range of ±2000°/s, the sensitivity is 16.\+4 LSB per °/s. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmpu6050_a2ace94719ced141d909bae7407e91e5e}\label{classmpu6050_a2ace94719ced141d909bae7407e91e5e}} 
+\index{mpu6050@{mpu6050}!setSampleRate@{setSampleRate}}
+\index{setSampleRate@{setSampleRate}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{setSampleRate()}{setSampleRate()}}
+{\footnotesize\ttfamily void mpu6050\+::set\+Sample\+Rate (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{sample\+\_\+rate\+\_\+setting }\end{DoxyParamCaption})}
+
+
+
+Set the Gyroscope Sample Rate configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Parse} & the desired full-\/scale range setting in hexadecimal value. For example for setting 1k\+HZ\+: 0x07 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmpu6050_afc73ee99da3129b8e70d7b760a99866d}\label{classmpu6050_afc73ee99da3129b8e70d7b760a99866d}} 
+\index{mpu6050@{mpu6050}!wakeUp@{wakeUp}}
+\index{wakeUp@{wakeUp}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{wakeUp()}{wakeUp()}}
+{\footnotesize\ttfamily byte mpu6050\+::wake\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Wakes the device up by writing to the appropiate power management bit. 
+
+\begin{DoxyReturn}{Returns}
+0 = Succes 1 = Data too long 2 = Received NACK for adress, I2C device did not acknowledge the adress indicating failure to establish communication 3 = Received NACK for data, the I2C device did not acknowledge the data byte, indicating failure during data transmission 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_a50ef20dd4f382251fa07e7330b5b5667}\label{classmpu6050_a50ef20dd4f382251fa07e7330b5b5667}} 
+\index{mpu6050@{mpu6050}!whoAmI@{whoAmI}}
+\index{whoAmI@{whoAmI}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{whoAmI()}{whoAmI()}}
+{\footnotesize\ttfamily uint8\+\_\+t mpu6050\+::who\+AmI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve the module\textquotesingle{}s I2C adress. 
+
+\begin{DoxyReturn}{Returns}
+an uint8\+\_\+t number indicating the I2C adress of the module. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+MPU6050/MPU6050.\+hpp\item 
+lib/\+MPU6050/MPU6050.\+cpp\end{DoxyCompactItemize}

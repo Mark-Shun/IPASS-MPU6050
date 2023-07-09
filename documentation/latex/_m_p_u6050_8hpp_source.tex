@@ -1,0 +1,161 @@
+\hypertarget{_m_p_u6050_8hpp_source}{}\doxysection{MPU6050.\+hpp}
+\label{_m_p_u6050_8hpp_source}\index{lib/MPU6050/MPU6050.hpp@{lib/MPU6050/MPU6050.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MPU6050\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MPU6050\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <Wire.h>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_sensor_data}{SensorData}}\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ int16\_t\ accel\_x;}
+\DoxyCodeLine{00009\ \ \ \ \ int16\_t\ accel\_y;}
+\DoxyCodeLine{00010\ \ \ \ \ int16\_t\ accel\_z;}
+\DoxyCodeLine{00011\ \ \ \ \ int16\_t\ temperature;}
+\DoxyCodeLine{00012\ \ \ \ \ int16\_t\ gyro\_x;}
+\DoxyCodeLine{00013\ \ \ \ \ int16\_t\ gyro\_y;}
+\DoxyCodeLine{00014\ \ \ \ \ int16\_t\ gyro\_z;}
+\DoxyCodeLine{00015\ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_calc_sensor_data}{CalcSensorData}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{float}\ calc\_accel\_x;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{float}\ calc\_accel\_y;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{float}\ calc\_accel\_z;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{float}\ calc\_temperature;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{float}\ calc\_gyro\_x;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{float}\ calc\_gyro\_y;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{float}\ calc\_gyro\_z;}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmpu6050}{mpu6050}}\{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00029\ \ \ \ \ uint8\_t\ i2c\_address;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ uint8\_t\ power\_management1\ =\ 0x6B;}
+\DoxyCodeLine{00032\ \ \ \ \ uint8\_t\ who\_am\_i\ =\ 0x75;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ uint8\_t\ gyro\_config\ =\ 0x1B;}
+\DoxyCodeLine{00035\ \ \ \ \ uint8\_t\ accel\_config\ =\ 0x1C;}
+\DoxyCodeLine{00036\ \ \ \ \ uint8\_t\ sample\_rate\_div\ =\ 0x19;}
+\DoxyCodeLine{00037\ \ \ \ \ uint8\_t\ dlpf\_config\ =\ 0x1A;}
+\DoxyCodeLine{00038\ \ \ \ \ uint8\_t\ fsync\_config\ =\ 0X1;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ uint8\_t\ accel\_x\_h\ =\ 0x3B;}
+\DoxyCodeLine{00041\ \ \ \ \ uint8\_t\ accel\_x\_l\ =\ 0x3C;}
+\DoxyCodeLine{00042\ \ \ \ \ uint8\_t\ accel\_y\_h\ =\ 0x3D;}
+\DoxyCodeLine{00043\ \ \ \ \ uint8\_t\ accel\_y\_l\ =\ 0x3E;}
+\DoxyCodeLine{00044\ \ \ \ \ uint8\_t\ accel\_z\_h\ =\ 0x3F;}
+\DoxyCodeLine{00045\ \ \ \ \ uint8\_t\ accel\_z\_l\ =\ 0x40;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ uint8\_t\ gyro\_x\_h\ =\ 0x43;}
+\DoxyCodeLine{00048\ \ \ \ \ uint8\_t\ gyro\_x\_l\ =\ 0x44;}
+\DoxyCodeLine{00049\ \ \ \ \ uint8\_t\ gyro\_y\_h\ =\ 0x45;}
+\DoxyCodeLine{00050\ \ \ \ \ uint8\_t\ gyro\_y\_l\ =\ 0x46;}
+\DoxyCodeLine{00051\ \ \ \ \ uint8\_t\ gyro\_z\_h\ =\ 0x47;}
+\DoxyCodeLine{00052\ \ \ \ \ uint8\_t\ gyro\_z\_l\ =\ 0x48;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{float}\ accel\_x\_offset\ =\ 0;}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{float}\ accel\_y\_offset\ =\ 0;}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{float}\ accel\_z\_offset\ =\ 0;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{float}\ gyro\_x\_offset\ =\ 0;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{float}\ gyro\_y\_offset\ =\ 0;}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{float}\ gyro\_z\_offset\ =\ 0;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ uint8\_t\ temperature\ =\ 0x41;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ uint16\_t\ calib\_offset\_amount\ =\ 500;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{float}\ accel\_lsb\_to\_g\ =\ 16384.0;\ \textcolor{comment}{//Default\ value\ with\ accel\ setting\ 0}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{float}\ gyro\_lsb\_to\_degsec\ =\ 131.0;\ \textcolor{comment}{//Default\ value\ with\ gyro\ setting\ 0}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{bool}\ upside\_down\_mount\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00070\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{classmpu6050}{mpu6050}}(uint8\_t\ set\_i2c\_address\ =\ 0x68);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{byte}\ \mbox{\hyperlink{classmpu6050_afc73ee99da3129b8e70d7b760a99866d}{wakeUp}}();}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmpu6050_a73ee796523c30b77f9dcca7a9e7bba34}{awakeCheck}}();}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{byte}\ \mbox{\hyperlink{classmpu6050_a913a7cab49cfc33cd0bf0e4d903d4774}{communicationCheck}}();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00111\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classmpu6050_a50ef20dd4f382251fa07e7330b5b5667}{whoAmI}}();}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_a211a2635a99f3162e5c5e39d3cadb319}{reset}}();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_ac6553057859f0b5ec825493cc6b5780a}{calcOffsets}}(\textcolor{keywordtype}{bool}\ is\_calc\_acc=\textcolor{keyword}{true},\ \textcolor{keywordtype}{bool}\ is\_calc\_gyro=\textcolor{keyword}{true});}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_a8c05767a1c33288204db4d4ebd8bec97}{enableAccelSelfTest}}();}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_a1b88f5eacbdf7269757eda2861885943}{enableGyroSelfTest}}();}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00152\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classmpu6050_a5ab8d0ddd711c80c9d6d8b0e0563878c}{getClockSource}}();}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_a411fbb41635905e9d6748f2239692083}{getSelfTestValues}}(uint8\_t\ \&\ accel\_x,\ uint8\_t\ \&\ accel\_y,\ uint8\_t\ \&\ accel\_z,\ uint8\_t\ \&\ gyro\_x,\ uint8\_t\ \&\ gyro\_y,\ uint8\_t\ \&\ gyro\_z);}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00171\ \ \ \ \ int16\_t\ \mbox{\hyperlink{classmpu6050_a3fa78fe214e5666818cfc3088f537531}{getAccelX}}();}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classmpu6050_a921d5ef0b16b92b41dc6cd757a65501e}{getCalcAccelX}}();}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00185\ \ \ \ \ int16\_t\ \mbox{\hyperlink{classmpu6050_ac8181d8270423070ee27305561728775}{getAccelY}}();}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classmpu6050_a7c6e1b3e161fae7ecd7ec27a0c09996e}{getCalcAccelY}}();}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00199\ \ \ \ \ int16\_t\ \mbox{\hyperlink{classmpu6050_a72964016d81fc711f88a20c2164ff4e9}{getAccelZ}}();}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classmpu6050_a4f52b2f7baaae89eec9be1c37d9c3903}{getCalcAccelZ}}();}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00213\ \ \ \ \ int16\_t\ \mbox{\hyperlink{classmpu6050_a87ddc9d062ebf83f3ae0117b53fd4f31}{getGyroX}}();}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classmpu6050_a9949d105876712aaaa9494aee4a5c4d6}{getCalcGyroX}}();}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00227\ \ \ \ \ int16\_t\ \mbox{\hyperlink{classmpu6050_afcfda69d16a6ce7083bf507b21be6c35}{getGyroY}}();}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classmpu6050_a81494a849afc298ce5c9d8e565fc456d}{getCalcGyroY}}();}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00241\ \ \ \ \ int16\_t\ \mbox{\hyperlink{classmpu6050_a81fd1ecc0545fe3a9be655cd918fae8f}{getGyroZ}}();}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classmpu6050_acbd61b999ec26f2bfbe42ed889aa376c}{getCalcGyroZ}}();}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00255\ \ \ \ \ int16\_t\ \mbox{\hyperlink{classmpu6050_a21a20c66bf02f452043e02db3cca7b2d}{getTemp}}();}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classmpu6050_a269e06fedbe4c2de581ab705901e4b9e}{getCalcTemp}}();}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00270\ \ \ \ \ \mbox{\hyperlink{struct_sensor_data}{SensorData}}\ \mbox{\hyperlink{classmpu6050_a684c0cd66bb608fd2e42bc0c74f5da27}{getAllSensorData}}();}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00277\ \ \ \ \ \mbox{\hyperlink{struct_calc_sensor_data}{CalcSensorData}}\ \mbox{\hyperlink{classmpu6050_ae6018ba2546e78ce89ba1195bdb6c16b}{getAllCalcSensorData}}();}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00289\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classmpu6050_aeaf8122e2e04f2043cef80ff389f28b3}{getAccelFullScaleRange}}();}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00301\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classmpu6050_a34d29d271220ee0da130bfc77be5ca47}{getGyroFullScaleRange}}();}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00316\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classmpu6050_a3cb871b4959e7632a57f92b99c381028}{getSampleRate}}();}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00343\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classmpu6050_afa7f5d97f647dfeaa9b47e9d7de824ec}{getDLPF}}();}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00358\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_a1c42f44690e3b14bce7819c9b8fe9c16}{setClockSource}}(uint8\_t\ clock\_source\_setting);}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00370\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_ac7e8b73e19da659b1bcceb558a71a7fe}{setAccelFullScaleRange}}(uint8\_t\ full\_scale\_range\_setting);}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00382\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_aab51ccdbf698f42751c3b3882c914882}{setGyroFullScaleRange}}(uint8\_t\ full\_scale\_range\_setting);}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00390\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_a2ace94719ced141d909bae7407e91e5e}{setSampleRate}}(uint8\_t\ sample\_rate\_setting);}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_a7effe5346e90359e33e4851e295c97ad}{setDLPF}}(uint8\_t\ dlpf\_setting);}
+\DoxyCodeLine{00399\ \ \ \ \ }
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_afd2a80b7ecc2a19d87e4aab99d927172}{setFSYNC}}(uint8\_t\ fsync\_setting);}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{keywordtype}{float}\ getAccelXOffset()\{\ \textcolor{keywordflow}{return}\ accel\_x\_offset;\};}
+\DoxyCodeLine{00409\ \ \ \ \ \textcolor{keywordtype}{float}\ getAccelYOffset()\{\ \textcolor{keywordflow}{return}\ accel\_y\_offset;\};}
+\DoxyCodeLine{00410\ \ \ \ \ \textcolor{keywordtype}{float}\ getAccelZOffset()\{\ \textcolor{keywordflow}{return}\ accel\_z\_offset;\};}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keywordtype}{float}\ getGyroXOffset()\{\ \textcolor{keywordflow}{return}\ gyro\_x\_offset;\};}
+\DoxyCodeLine{00413\ \ \ \ \ \textcolor{keywordtype}{float}\ getGyroYOffset()\{\ \textcolor{keywordflow}{return}\ gyro\_y\_offset;\};}
+\DoxyCodeLine{00414\ \ \ \ \ \textcolor{keywordtype}{float}\ getGyroZOffset()\{\ \textcolor{keywordflow}{return}\ gyro\_z\_offset;\};}
+\DoxyCodeLine{00415\ \};}
+\DoxyCodeLine{00416\ }
+\DoxyCodeLine{00417\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
