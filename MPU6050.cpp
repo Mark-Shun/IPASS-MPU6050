@@ -376,8 +376,27 @@ CalcSensorData mpu6050::getAllCalcSensorData(){
     calc_data.calc_gyro_x = ((float)raw_data.gyro_x) / gyro_lsb_to_degsec - gyro_x_offset;
     calc_data.calc_gyro_y = ((float)raw_data.gyro_y) / gyro_lsb_to_degsec - gyro_y_offset;
     calc_data.calc_gyro_z = ((float)raw_data.gyro_z) / gyro_lsb_to_degsec - gyro_z_offset;
+    
     return calc_data;
+}
 
+CalcSensorData mpu6050::getAllCalcSensorData(SensorData & raw_data){
+    CalcSensorData calc_data;
+
+    // Convert raw Accelerometer values to G-forces
+    calc_data.calc_accel_x = ((float)raw_data.accel_x) / accel_lsb_to_g - accel_x_offset;
+    calc_data.calc_accel_y = ((float)raw_data.accel_y) / accel_lsb_to_g - accel_y_offset;
+    calc_data.calc_accel_z = (!upside_down_mount - upside_down_mount) * ((float)raw_data.accel_z) / accel_lsb_to_g - accel_z_offset;
+
+    // Convert raw value to celcius
+    calc_data.calc_temperature = (raw_data.temperature / 340.0) + 36.53;
+
+    // Convert raw Gyroscope values to degrees per second
+    calc_data.calc_gyro_x = ((float)raw_data.gyro_x) / gyro_lsb_to_degsec - gyro_x_offset;
+    calc_data.calc_gyro_y = ((float)raw_data.gyro_y) / gyro_lsb_to_degsec - gyro_y_offset;
+    calc_data.calc_gyro_z = ((float)raw_data.gyro_z) / gyro_lsb_to_degsec - gyro_z_offset;
+    
+    return calc_data;
 }
 
 uint8_t mpu6050::getGyroFullScaleRange(){

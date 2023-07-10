@@ -277,6 +277,14 @@ public:
     CalcSensorData getAllCalcSensorData();
 
 /**
+ * @brief Overloading function which uses parsed raw sensor data
+ * 
+ * @param raw_data which is a struct with the raw sensor data 
+ * @return A struct storing all the converted sensor reading values (G-force, Celcius, Degrees per second and celcius)
+ */
+    CalcSensorData getAllCalcSensorData(SensorData & raw_data);
+
+/**
  * @brief Get the Accel Full Scale Range value
  * 
  * @return an uint8_t value indicating the sensitivity or scale factor of the gyroscope sensor.
