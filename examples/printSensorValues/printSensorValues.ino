@@ -34,10 +34,11 @@ void loop() {
     Serial.print("AccelX: "); Serial.print(calc_data.calc_accel_x);
     Serial.print("\tAccelY: "); Serial.print(calc_data.calc_accel_y);
     Serial.print("\tAccelZ: "); Serial.println(calc_data.calc_accel_z);
-    Serial.print("Temperature: "); Serial.print(calc_data.calc_temperature); Serial.println(" celcius");
     Serial.print("GyroX: "); Serial.print(calc_data.calc_gyro_x);
     Serial.print("\tGyroY: "); Serial.print(calc_data.calc_gyro_y);
     Serial.print("\tGyroZ: "); Serial.println(calc_data.calc_gyro_z);
+    Serial.print("Temperature: "); Serial.print(calc_data.calc_temperature); Serial.println(" celcius");
+    Serial.println();
     timer = millis();
   }
 
