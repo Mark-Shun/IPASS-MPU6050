@@ -10,7 +10,6 @@ mpu6050 testSensor(0x68);
 void setUp(void)
 {
   // Execute code before every test
-  // delay(50);
   testSensor.wakeUp();
 }
 
@@ -21,9 +20,9 @@ void tearDown(void)
 
 void testWakeUp() {
 
-    // Test the wakeUp() function
-    bool check = testSensor.awakeCheck();
-    TEST_ASSERT_TRUE(check);
+  // Test the wakeUp() function
+  bool check = testSensor.awakeCheck();
+  TEST_ASSERT_TRUE(check);
 }
 
 void testWhoAmI() {
@@ -57,6 +56,8 @@ void testSampleRate(){
 }
 
 void testModuleSelfTest(){
+  const float tolerance = 0.14;
+
   uint8_t testAccelX = 0;
   uint8_t testAccelY = 0;
   uint8_t testAccelZ = 0;
@@ -73,42 +74,68 @@ void testModuleSelfTest(){
   float trimGyroY = 0.0;
   float trimGyroZ = 0.0;
 
+  testSensor.enableAccelSelfTest();
+  testSensor.enableGyroSelfTest();
+
+  delay(100);
+
+  testSensor.getSelfTestValues(testAccelX,testAccelY,testAccelZ,testGyroX,testGyroY,testGyroZ);
+
   uint8_t testValues[] = {testAccelX,testAccelY,testAccelZ,testGyroX,testGyroY,testGyroZ};
   float trimValues[] = {trimAccelX,trimAccelY,trimAccelZ,trimGyroX,trimGyroY,trimGyroZ};
   float percentages[6];
-  testSensor.enableAccelSelfTest();
-  testSensor.enableGyroSelfTest();
-  testSensor.getSelfTestValues(testAccelX,testAccelY,testAccelZ,testGyroX,testGyroY,testGyroZ);
   
   // From test value to factory trim calculation
   for(unsigned int i = 0; i < 6; i++){
     // Factory trim Acceleration calculation
     if(i<3){
-      trimValues[i] = (4096.0 * 0.34) * (pow( (0.92 / 0.34) , ((((float)testValues[i]) - 1.0) / 30.0)));
+      trimValues[i] = (4096.0 * 0.34) * pow((0.92 / 0.34), (((float)testValues[i]) - 1.0) / 30.0);
+      // trimValues[i] = (4096.0 * 0.34) * ( pow((0.92 / 0.34), ((float)testValues[i] - 1.0 / 30.0)));
     }
     // Factory trim Gyro calculation
-    else{
+    else if(i>=3 && i!=4){
       trimValues[i] = ( 25.0 * 131.0) * (pow( 1.046 , (((float)testValues[i]) - 1.0) ));
+    }
+    // Factory trim Gyro Y has a different formula
+    else{
+      trimValues[i] = (-25.0 * 131.0) * (pow( 1.046 , (((float)testValues[i]) - 1.0) ));
     }
   }
 
-  // Percentage calculations
+  // Percentages calculations
   for(unsigned int i = 0; i < 6; i++){
     percentages[i] = 100.0 + 100.0 * (((float)testValues[i]) - trimValues[i]) / trimValues[i];
   }
 
-  TEST_ASSERT_LESS_THAN(1.0,percentages[0]);
-  TEST_ASSERT_LESS_THAN(1.0,percentages[1]);
-  TEST_ASSERT_LESS_THAN(1.0,percentages[2]);
-  TEST_ASSERT_LESS_THAN(1.0,percentages[3]);
-  TEST_ASSERT_LESS_THAN(1.0,percentages[4]);
-  TEST_ASSERT_LESS_THAN(1.0,percentages[5]);
+  // Print values to check them in serial monitor
+  Serial.println("-Test values-");
+  for(unsigned int i =0;i<6;i++){
+    Serial.print(i); Serial.print(": "); Serial.println(testValues[i]);
+  }
+
+  Serial.println("-Trim values-");
+  for(unsigned int i =0;i<6;i++){
+    Serial.print(i); Serial.print(": "); Serial.println(trimValues[i]);
+  }
+  
+  Serial.println("-Percentages-");
+  for(unsigned int i =0;i<6;i++){
+    Serial.print(i); Serial.print(": "); Serial.println(percentages[i]);
+  }
+
+  // Perform floating-point comparisons
+  TEST_ASSERT_FLOAT_WITHIN(tolerance, 0, percentages[0]);
+  TEST_ASSERT_FLOAT_WITHIN(tolerance, 0, percentages[1]);
+  TEST_ASSERT_FLOAT_WITHIN(tolerance, 0, percentages[2]);
+  TEST_ASSERT_FLOAT_WITHIN(tolerance, 0, percentages[3]);
+  TEST_ASSERT_FLOAT_WITHIN(tolerance, 0, percentages[4]);
+  TEST_ASSERT_FLOAT_WITHIN(tolerance, 0, percentages[5]);
 
 }
 
 // Define the necessary Arduino functions
 void setup() {
-    // Set up any necessary initialization before the tests
+    Serial.begin(115200);
     delay(500);
     UNITY_BEGIN();
 }
@@ -122,7 +149,6 @@ void loop() {
     RUN_TEST(testAccelFullScaleRange);
     RUN_TEST(testSampleRate);
     RUN_TEST(testModuleSelfTest);
-    // Add other test cases here
   
     UNITY_END();
 }

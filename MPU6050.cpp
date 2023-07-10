@@ -169,10 +169,11 @@ void mpu6050::getSelfTestValues(uint8_t & accel_x, uint8_t & accel_y, uint8_t & 
     uint8_t self_test_z = Wire.read();
     uint8_t self_test_a = Wire.read();
 
-    accel_x = (self_test_x >> 3) | (self_test_a & 0x30) >> 4;
-    accel_y = (self_test_y >> 3) | (self_test_a & 0x0C) >> 2;
-    accel_z = (self_test_x >> 3) | (self_test_a & 0x03);
+    accel_x = (self_test_x >> 3) | (self_test_a & 0x30) >> 4;  // 0x30 = 00110000
+    accel_y = (self_test_y >> 3) | (self_test_a & 0x0C) >> 2; // 0x0C = 00001100
+    accel_z = (self_test_z >> 3) | (self_test_a & 0x03);     // 0x03 = 00000011
 
+    // 0x1F = 0001111
     gyro_x = self_test_x & 0x1F;
     gyro_y = self_test_y & 0x1F;
     gyro_z = self_test_z & 0x1F;
