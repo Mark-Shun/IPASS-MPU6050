@@ -1,5 +1,4 @@
 \hypertarget{_m_p_u6050_8hpp_source}{}\doxysection{MPU6050.\+hpp}
-\label{_m_p_u6050_8hpp_source}\index{lib/MPU6050/MPU6050.hpp@{lib/MPU6050/MPU6050.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MPU6050\_HPP}}
@@ -127,35 +126,37 @@
 \DoxyCodeLine{00271\ }
 \DoxyCodeLine{00277\ \ \ \ \ \mbox{\hyperlink{struct_calc_sensor_data}{CalcSensorData}}\ \mbox{\hyperlink{classmpu6050_ae6018ba2546e78ce89ba1195bdb6c16b}{getAllCalcSensorData}}();}
 \DoxyCodeLine{00278\ }
-\DoxyCodeLine{00289\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classmpu6050_aeaf8122e2e04f2043cef80ff389f28b3}{getAccelFullScaleRange}}();}
-\DoxyCodeLine{00290\ }
-\DoxyCodeLine{00301\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classmpu6050_a34d29d271220ee0da130bfc77be5ca47}{getGyroFullScaleRange}}();}
-\DoxyCodeLine{00302\ }
-\DoxyCodeLine{00316\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classmpu6050_a3cb871b4959e7632a57f92b99c381028}{getSampleRate}}();}
-\DoxyCodeLine{00317\ }
-\DoxyCodeLine{00343\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classmpu6050_afa7f5d97f647dfeaa9b47e9d7de824ec}{getDLPF}}();}
-\DoxyCodeLine{00344\ }
-\DoxyCodeLine{00358\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_a1c42f44690e3b14bce7819c9b8fe9c16}{setClockSource}}(uint8\_t\ clock\_source\_setting);}
-\DoxyCodeLine{00359\ }
-\DoxyCodeLine{00370\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_ac7e8b73e19da659b1bcceb558a71a7fe}{setAccelFullScaleRange}}(uint8\_t\ full\_scale\_range\_setting);}
-\DoxyCodeLine{00371\ }
-\DoxyCodeLine{00382\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_aab51ccdbf698f42751c3b3882c914882}{setGyroFullScaleRange}}(uint8\_t\ full\_scale\_range\_setting);}
-\DoxyCodeLine{00383\ }
-\DoxyCodeLine{00390\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_a2ace94719ced141d909bae7407e91e5e}{setSampleRate}}(uint8\_t\ sample\_rate\_setting);}
+\DoxyCodeLine{00285\ \ \ \ \ \mbox{\hyperlink{struct_calc_sensor_data}{CalcSensorData}}\ \mbox{\hyperlink{classmpu6050_ae6018ba2546e78ce89ba1195bdb6c16b}{getAllCalcSensorData}}(\mbox{\hyperlink{struct_sensor_data}{SensorData}}\ \&\ raw\_data);}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00297\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classmpu6050_aeaf8122e2e04f2043cef80ff389f28b3}{getAccelFullScaleRange}}();}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00309\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classmpu6050_a34d29d271220ee0da130bfc77be5ca47}{getGyroFullScaleRange}}();}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00324\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classmpu6050_a3cb871b4959e7632a57f92b99c381028}{getSampleRate}}();}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00351\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classmpu6050_afa7f5d97f647dfeaa9b47e9d7de824ec}{getDLPF}}();}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00366\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_a1c42f44690e3b14bce7819c9b8fe9c16}{setClockSource}}(uint8\_t\ clock\_source\_setting);}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00378\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_ac7e8b73e19da659b1bcceb558a71a7fe}{setAccelFullScaleRange}}(uint8\_t\ full\_scale\_range\_setting);}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00390\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_aab51ccdbf698f42751c3b3882c914882}{setGyroFullScaleRange}}(uint8\_t\ full\_scale\_range\_setting);}
 \DoxyCodeLine{00391\ }
-\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_a7effe5346e90359e33e4851e295c97ad}{setDLPF}}(uint8\_t\ dlpf\_setting);}
-\DoxyCodeLine{00399\ \ \ \ \ }
-\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_afd2a80b7ecc2a19d87e4aab99d927172}{setFSYNC}}(uint8\_t\ fsync\_setting);}
-\DoxyCodeLine{00407\ }
-\DoxyCodeLine{00408\ \ \ \ \ \textcolor{keywordtype}{float}\ getAccelXOffset()\{\ \textcolor{keywordflow}{return}\ accel\_x\_offset;\};}
-\DoxyCodeLine{00409\ \ \ \ \ \textcolor{keywordtype}{float}\ getAccelYOffset()\{\ \textcolor{keywordflow}{return}\ accel\_y\_offset;\};}
-\DoxyCodeLine{00410\ \ \ \ \ \textcolor{keywordtype}{float}\ getAccelZOffset()\{\ \textcolor{keywordflow}{return}\ accel\_z\_offset;\};}
-\DoxyCodeLine{00411\ }
-\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keywordtype}{float}\ getGyroXOffset()\{\ \textcolor{keywordflow}{return}\ gyro\_x\_offset;\};}
-\DoxyCodeLine{00413\ \ \ \ \ \textcolor{keywordtype}{float}\ getGyroYOffset()\{\ \textcolor{keywordflow}{return}\ gyro\_y\_offset;\};}
-\DoxyCodeLine{00414\ \ \ \ \ \textcolor{keywordtype}{float}\ getGyroZOffset()\{\ \textcolor{keywordflow}{return}\ gyro\_z\_offset;\};}
-\DoxyCodeLine{00415\ \};}
-\DoxyCodeLine{00416\ }
-\DoxyCodeLine{00417\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_a2ace94719ced141d909bae7407e91e5e}{setSampleRate}}(uint8\_t\ sample\_rate\_setting);}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_a7effe5346e90359e33e4851e295c97ad}{setDLPF}}(uint8\_t\ dlpf\_setting);}
+\DoxyCodeLine{00407\ \ \ \ \ }
+\DoxyCodeLine{00414\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmpu6050_afd2a80b7ecc2a19d87e4aab99d927172}{setFSYNC}}(uint8\_t\ fsync\_setting);}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \ \ \ \ \textcolor{keywordtype}{float}\ getAccelXOffset()\{\ \textcolor{keywordflow}{return}\ accel\_x\_offset;\};}
+\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keywordtype}{float}\ getAccelYOffset()\{\ \textcolor{keywordflow}{return}\ accel\_y\_offset;\};}
+\DoxyCodeLine{00418\ \ \ \ \ \textcolor{keywordtype}{float}\ getAccelZOffset()\{\ \textcolor{keywordflow}{return}\ accel\_z\_offset;\};}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keywordtype}{float}\ getGyroXOffset()\{\ \textcolor{keywordflow}{return}\ gyro\_x\_offset;\};}
+\DoxyCodeLine{00421\ \ \ \ \ \textcolor{keywordtype}{float}\ getGyroYOffset()\{\ \textcolor{keywordflow}{return}\ gyro\_y\_offset;\};}
+\DoxyCodeLine{00422\ \ \ \ \ \textcolor{keywordtype}{float}\ getGyroZOffset()\{\ \textcolor{keywordflow}{return}\ gyro\_z\_offset;\};}
+\DoxyCodeLine{00423\ \};}
+\DoxyCodeLine{00424\ }
+\DoxyCodeLine{00425\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

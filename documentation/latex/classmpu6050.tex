@@ -57,6 +57,8 @@ float \mbox{\hyperlink{classmpu6050_a269e06fedbe4c2de581ab705901e4b9e}{get\+Calc
 \begin{DoxyCompactList}\small\item\em Retrieve all sensor (accel, gyro, temp) data in one go. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_calc_sensor_data}{Calc\+Sensor\+Data}} \mbox{\hyperlink{classmpu6050_ae6018ba2546e78ce89ba1195bdb6c16b}{get\+All\+Calc\+Sensor\+Data}} ()
 \begin{DoxyCompactList}\small\item\em Retrieve and convert all sensor (accel, gyro, temp) data in one go. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_calc_sensor_data}{Calc\+Sensor\+Data}} \mbox{\hyperlink{classmpu6050_a2bf81afc9f9e154d793b161133acfb2e}{get\+All\+Calc\+Sensor\+Data}} (\mbox{\hyperlink{struct_sensor_data}{Sensor\+Data}} \&raw\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Overloading function which uses parsed raw sensor data. \end{DoxyCompactList}\item 
 uint8\+\_\+t \mbox{\hyperlink{classmpu6050_aeaf8122e2e04f2043cef80ff389f28b3}{get\+Accel\+Full\+Scale\+Range}} ()
 \begin{DoxyCompactList}\small\item\em Get the Accel Full Scale Range value. \end{DoxyCompactList}\item 
 uint8\+\_\+t \mbox{\hyperlink{classmpu6050_a34d29d271220ee0da130bfc77be5ca47}{get\+Gyro\+Full\+Scale\+Range}} ()
@@ -236,13 +238,31 @@ int16\+\_\+t
 \mbox{\Hypertarget{classmpu6050_ae6018ba2546e78ce89ba1195bdb6c16b}\label{classmpu6050_ae6018ba2546e78ce89ba1195bdb6c16b}} 
 \index{mpu6050@{mpu6050}!getAllCalcSensorData@{getAllCalcSensorData}}
 \index{getAllCalcSensorData@{getAllCalcSensorData}!mpu6050@{mpu6050}}
-\doxysubsubsection{\texorpdfstring{getAllCalcSensorData()}{getAllCalcSensorData()}}
+\doxysubsubsection{\texorpdfstring{getAllCalcSensorData()}{getAllCalcSensorData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily \mbox{\hyperlink{struct_calc_sensor_data}{Calc\+Sensor\+Data}} mpu6050\+::get\+All\+Calc\+Sensor\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 Retrieve and convert all sensor (accel, gyro, temp) data in one go. 
 
+\begin{DoxyReturn}{Returns}
+A struct storing all the converted sensor reading values (G-\/force, Celcius, Degrees per second and celcius) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmpu6050_a2bf81afc9f9e154d793b161133acfb2e}\label{classmpu6050_a2bf81afc9f9e154d793b161133acfb2e}} 
+\index{mpu6050@{mpu6050}!getAllCalcSensorData@{getAllCalcSensorData}}
+\index{getAllCalcSensorData@{getAllCalcSensorData}!mpu6050@{mpu6050}}
+\doxysubsubsection{\texorpdfstring{getAllCalcSensorData()}{getAllCalcSensorData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_calc_sensor_data}{Calc\+Sensor\+Data}} mpu6050\+::get\+All\+Calc\+Sensor\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sensor_data}{Sensor\+Data}} \&}]{raw\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Overloading function which uses parsed raw sensor data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em raw\+\_\+data} & which is a struct with the raw sensor data \\
+\hline
+\end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 A struct storing all the converted sensor reading values (G-\/force, Celcius, Degrees per second and celcius) 
 \end{DoxyReturn}
@@ -615,5 +635,5 @@ an uint8\+\_\+t number indicating the I2C adress of the module.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-lib/\+MPU6050/MPU6050.\+hpp\item 
-lib/\+MPU6050/MPU6050.\+cpp\end{DoxyCompactItemize}
+MPU6050.\+hpp\item 
+MPU6050.\+cpp\end{DoxyCompactItemize}

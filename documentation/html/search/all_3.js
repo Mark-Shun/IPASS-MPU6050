@@ -4,7 +4,7 @@ var searchData=
   ['getaccelx_1',['getAccelX',['../classmpu6050.html#a3fa78fe214e5666818cfc3088f537531',1,'mpu6050']]],
   ['getaccely_2',['getAccelY',['../classmpu6050.html#ac8181d8270423070ee27305561728775',1,'mpu6050']]],
   ['getaccelz_3',['getAccelZ',['../classmpu6050.html#a72964016d81fc711f88a20c2164ff4e9',1,'mpu6050']]],
-  ['getallcalcsensordata_4',['getAllCalcSensorData',['../classmpu6050.html#ae6018ba2546e78ce89ba1195bdb6c16b',1,'mpu6050']]],
+  ['getallcalcsensordata_4',['getAllCalcSensorData',['../classmpu6050.html#ae6018ba2546e78ce89ba1195bdb6c16b',1,'mpu6050::getAllCalcSensorData()'],['../classmpu6050.html#a2bf81afc9f9e154d793b161133acfb2e',1,'mpu6050::getAllCalcSensorData(SensorData &amp;raw_data)']]],
   ['getallsensordata_5',['getAllSensorData',['../classmpu6050.html#a684c0cd66bb608fd2e42bc0c74f5da27',1,'mpu6050']]],
   ['getcalcaccelx_6',['getCalcAccelX',['../classmpu6050.html#a921d5ef0b16b92b41dc6cd757a65501e',1,'mpu6050']]],
   ['getcalcaccely_7',['getCalcAccelY',['../classmpu6050.html#a7c6e1b3e161fae7ecd7ec27a0c09996e',1,'mpu6050']]],

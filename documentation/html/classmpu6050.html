@@ -161,6 +161,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae6018ba2546e78ce89ba1195bdb6c16b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_calc_sensor_data.html">CalcSensorData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmpu6050.html#ae6018ba2546e78ce89ba1195bdb6c16b">getAllCalcSensorData</a> ()</td></tr>
 <tr class="memdesc:ae6018ba2546e78ce89ba1195bdb6c16b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve and convert all sensor (accel, gyro, temp) data in one go.  <br /></td></tr>
 <tr class="separator:ae6018ba2546e78ce89ba1195bdb6c16b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bf81afc9f9e154d793b161133acfb2e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_calc_sensor_data.html">CalcSensorData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmpu6050.html#a2bf81afc9f9e154d793b161133acfb2e">getAllCalcSensorData</a> (<a class="el" href="struct_sensor_data.html">SensorData</a> &amp;raw_data)</td></tr>
+<tr class="memdesc:a2bf81afc9f9e154d793b161133acfb2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloading function which uses parsed raw sensor data.  <br /></td></tr>
+<tr class="separator:a2bf81afc9f9e154d793b161133acfb2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeaf8122e2e04f2043cef80ff389f28b3"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmpu6050.html#aeaf8122e2e04f2043cef80ff389f28b3">getAccelFullScaleRange</a> ()</td></tr>
 <tr class="memdesc:aeaf8122e2e04f2043cef80ff389f28b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Accel Full Scale Range value.  <br /></td></tr>
 <tr class="separator:aeaf8122e2e04f2043cef80ff389f28b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -436,7 +439,7 @@ false </dd></dl>
 </div>
 </div>
 <a id="ae6018ba2546e78ce89ba1195bdb6c16b" name="ae6018ba2546e78ce89ba1195bdb6c16b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6018ba2546e78ce89ba1195bdb6c16b">&#9670;&#160;</a></span>getAllCalcSensorData()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6018ba2546e78ce89ba1195bdb6c16b">&#9670;&#160;</a></span>getAllCalcSensorData() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -451,6 +454,33 @@ false </dd></dl>
 </div><div class="memdoc">
 
 <p>Retrieve and convert all sensor (accel, gyro, temp) data in one go. </p>
+<dl class="section return"><dt>Returns</dt><dd>A struct storing all the converted sensor reading values (G-force, Celcius, Degrees per second and celcius) </dd></dl>
+
+</div>
+</div>
+<a id="a2bf81afc9f9e154d793b161133acfb2e" name="a2bf81afc9f9e154d793b161133acfb2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bf81afc9f9e154d793b161133acfb2e">&#9670;&#160;</a></span>getAllCalcSensorData() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_calc_sensor_data.html">CalcSensorData</a> mpu6050::getAllCalcSensorData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_sensor_data.html">SensorData</a> &amp;&#160;</td>
+          <td class="paramname"><em>raw_data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Overloading function which uses parsed raw sensor data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">raw_data</td><td>which is a struct with the raw sensor data </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>A struct storing all the converted sensor reading values (G-force, Celcius, Degrees per second and celcius) </dd></dl>
 
 </div>
@@ -1062,8 +1092,8 @@ false </dd></dl>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>lib/MPU6050/<a class="el" href="_m_p_u6050_8hpp_source.html">MPU6050.hpp</a></li>
-<li>lib/MPU6050/MPU6050.cpp</li>
+<li><a class="el" href="_m_p_u6050_8hpp_source.html">MPU6050.hpp</a></li>
+<li>MPU6050.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
